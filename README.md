@@ -25,7 +25,7 @@ The following **optional** features are implemented:
 
 The following **additional** features are implemented:
 
-* [ ] List anything else that you can get done to improve the app functionality!
+* [ ] Save to Firebase!
 
 ## Video Walkthrough 
 
@@ -33,6 +33,6 @@ Here's a walkthrough of implemented user stories:
 
 <img src='https://github.com/suryavanshi/SimpleTodo/blob/master/simpletodo_gif1.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
-GIF created with [LiceCap](http://www.cockos.com/licecap/).
+GIF created with http://ezgif.com/video-to-gif.
 
 ## Notes
