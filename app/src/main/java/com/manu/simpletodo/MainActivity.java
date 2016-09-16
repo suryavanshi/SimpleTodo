@@ -1,5 +1,6 @@
 package com.manu.simpletodo;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.os.Bundle;
@@ -21,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
     private ArrayList<String> items;
     private ArrayAdapter<String> itemsAdapter;
     private ListView lvItems;
+    private final int EDIT_REQUEST_CODE = 20;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,6 +37,7 @@ public class MainActivity extends AppCompatActivity {
         //items.add("First Item");
         //items.add("Second Item");
         setupListViewListener();
+        setupListEditListener();
     }
 
     private void setupListViewListener() {
@@ -53,6 +56,18 @@ public class MainActivity extends AppCompatActivity {
                     }
 
                 });
+    }
+
+    private void setupListEditListener() {
+        lvItems.setOnItemClickListener(new AdapterView.OnItemClickListener(){
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent i = new Intent(parent.getContext(), EditItemActivity.class);
+                i.putExtra("task", items.get(position));
+                i.putExtra("pos", position);
+                startActivityForResult(i, EDIT_REQUEST_CODE);
+            }
+        });
     }
 
     public void onAddItem(View v) {
@@ -80,6 +95,20 @@ public class MainActivity extends AppCompatActivity {
             FileUtils.writeLines(todoFile, items);
         } catch (IOException e) {
             e.printStackTrace();
+        }
+    }
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        // REQUEST_CODE is defined above
+        if (resultCode == RESULT_OK && requestCode == EDIT_REQUEST_CODE) {
+            // Extract name value from result extras
+            String name = data.getExtras().getString("taskSav");
+            int position = data.getIntExtra("posSav", 200);
+            items.remove(position);
+            items.add(position, name);
+            itemsAdapter.notifyDataSetChanged();
+            writeItems();
+
         }
     }
 
