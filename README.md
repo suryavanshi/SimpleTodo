@@ -31,7 +31,7 @@ The following **additional** features are implemented:
 
 Here's a walkthrough of implemented user stories:
 
-<img src='https://github.com/suryavanshi/SimpleTodo/blob/master/simpletodo_gif2.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='https://github.com/suryavanshi/SimpleTodo/blob/master/simpletodo_gif3.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 GIF created with http://ezgif.com/video-to-gif.
 
