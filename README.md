@@ -36,3 +36,4 @@ Here's a walkthrough of implemented user stories:
 GIF created with http://ezgif.com/video-to-gif.
 
 ## Notes
+For app to run, disable instant run in Android studio - File->Setting->Build->Instant Run->Uncheck first box
